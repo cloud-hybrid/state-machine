@@ -33,21 +33,21 @@ Resources:
     One:
         Type: AWS::Serverless::Function
         Properties:
-            CodeUri: @cloud-technology/step-function-1
+            CodeUri: functions/step-function-1
             Handler: index.handler
             Runtime: nodejs14.x
 
     Two:
         Type: AWS::Serverless::Function
         Properties:
-            CodeUri: @cloud-technology/step-function-2
+            CodeUri: functions/step-function-2
             Handler: index.handler
             Runtime: nodejs14.x
 
     Three:
         Type: AWS::Serverless::Function
         Properties:
-            CodeUri: @cloud-technology/step-function-3
+            CodeUri: functions/step-function-3
             Handler: index.handler
             Runtime: nodejs14.x
 

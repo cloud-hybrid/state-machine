@@ -1,0 +1,12 @@
+[submodule "functions/step-function-1"]
+	path = functions/step-function-1
+	url = https://github.com/cloud-hybrid/step-function-1.git
+	branch = Development
+[submodule "functions/step-function-2"]
+	path = functions/step-function-2
+	url = https://github.com/cloud-hybrid/step-function-2.git
+	branch = Development
+[submodule "functions/step-function-3"]
+	path = functions/step-function-3
+	url = https://github.com/cloud-hybrid/step-function-3.git
+	branch = Development

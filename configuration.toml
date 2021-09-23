@@ -1,0 +1,10 @@
+version = 0.1
+[Development]
+[Development.deploy]
+[Development.deploy.parameters]
+stack_name = "Step-Function-Test"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-722t6cej2kdy"
+s3_prefix = "Step-Function-Test"
+region = "us-east-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"

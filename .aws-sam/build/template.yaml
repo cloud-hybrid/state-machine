@@ -1,0 +1,69 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'state-machine
+
+  '
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  Machine:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      DefinitionUri: ../../state-model/stepper.json
+      DefinitionSubstitutions:
+        OneFunctionArn:
+          Fn::GetAtt:
+          - One
+          - Arn
+        TwoFunctionArn:
+          Fn::GetAtt:
+          - Two
+          - Arn
+        ThreeFunctionArn:
+          Fn::GetAtt:
+          - Three
+          - Arn
+      Events:
+        HourlyTradingSchedule:
+          Type: Schedule
+          Properties:
+            Description: Schedule
+            Enabled: true
+            Schedule: rate(5 minute)
+      Policies:
+      - LambdaInvokePolicy:
+          FunctionName:
+            Ref: One
+      - LambdaInvokePolicy:
+          FunctionName:
+            Ref: Two
+      - LambdaInvokePolicy:
+          FunctionName:
+            Ref: Three
+  One:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: One
+      Handler: index.handler
+      Runtime: nodejs14.x
+  Two:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Two
+      Handler: index.handler
+      Runtime: nodejs14.x
+  Three:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Three
+      Handler: index.handler
+      Runtime: nodejs14.x
+Outputs:
+  ARN:
+    Description: State Machine ARN
+    Value:
+      Ref: Machine
+  IAM:
+    Description: IAM Role for State Machine's SAM Policy Templates
+    Value:
+      Fn::GetAtt:
+      - Machine
+      - Arn

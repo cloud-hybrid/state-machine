@@ -1,0 +1,16 @@
+{
+    "name": "@cloud-technology/state-machine",
+    "version": "0.0.1",
+    "private": true,
+    "license": "BSD-3-Clause",
+    "readme": "README.md",
+    "repository": "git+https://github.com/cloud-hybrid/state-machine.git",
+    "workspaces": [
+        "functions/*"
+    ],
+    "dependencies": {
+        "@cloud-technology/step-function-1": "workspaces:functions/step-function-1",
+        "@cloud-technology/step-function-2": "workspaces:functions/step-function-2",
+        "@cloud-technology/step-function-3": "workspaces:functions/step-function-3"
+    }
+}
